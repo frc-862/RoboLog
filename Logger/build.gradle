@@ -1,0 +1,17 @@
+apply plugin: 'java'
+
+def moduleName = "robolog-logger"
+
+jar.baseName = 'RoboLog-Logger'
+
+repositories {
+    maven {
+        url 'http://first.wpi.edu/FRC/roborio/maven/release/'
+    }
+}
+
+dependencies {
+    compile project(":Common")
+
+    compile group: 'edu.wpi.first.wpilibj', name: 'wpilibJavaFinal', version: '2016.5.1'
+}

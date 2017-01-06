@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="mainPane" prefHeight="533.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.usfirst.team862.robolog.viewer.Controller">
+   <children>
+      <MenuBar prefHeight="29.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openLogFile" text="Open..." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Graph">
+            <items>
+              <MenuItem disable="true" mnemonicParsing="false" text="Graph RIO Data" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Accordion AnchorPane.bottomAnchor="157.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
+        <panes>
+          <TitledPane animated="false" text="Log Summary">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="14.0" text="Robot Code Startup Time:" />
+                        <Label layoutX="14.0" layoutY="47.0" text="Code Deploy Time:" />
+                        <Label layoutX="14.0" layoutY="80.0" text="Rio Boot Time:" />
+                        <TextField fx:id="codeStartupTimeField" editable="false" layoutX="183.0" layoutY="9.0" prefHeight="29.0" prefWidth="169.0" promptText="Log not yet loaded" />
+                        <TextField fx:id="codeDeployTimeField" editable="false" layoutX="145.0" layoutY="42.0" prefHeight="29.0" prefWidth="169.0" promptText="Log not yet loaded" />
+                        <TextField fx:id="rioBootTimeField" editable="false" layoutX="114.0" layoutY="75.0" prefHeight="29.0" prefWidth="169.0" promptText="Log not yet loaded" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane animated="false" text="Event Summary">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="5.0" text="Type:" />
+                        <Label layoutX="13.0" layoutY="88.0" text="Stack:" />
+                        <TextArea fx:id="stackTextArea" editable="false" layoutX="63.0" layoutY="107.0" prefHeight="108.0" prefWidth="558.0" promptText="No event selected" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="67.0" />
+                        <Label layoutX="14.0" layoutY="24.0" text="Title:" />
+                        <Label fx:id="eventTitleLabel" layoutX="50.0" layoutY="24.0" text="No event selected" />
+                        <Label fx:id="eventTypeLabel" layoutX="54.0" layoutY="5.0" text="No event selected" />
+                        <Label fx:id="eventDescLabel" layoutX="94.0" layoutY="40.0" text="No event selected" />
+                        <Label layoutX="14.0" layoutY="40.0" text="Description:" />
+                        <Label layoutX="13.0" layoutY="58.0" text="Match Time (seconds):" />
+                        <Label fx:id="matchTimeLabel" layoutX="141.0" layoutY="58.0" text="No event selected" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </TitledPane>
+          <TitledPane animated="false" text="RIO Dump">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="digital0Btn" disable="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="Digital 0" />
+                        <RadioButton fx:id="digital1Btn" disable="true" layoutX="14.0" layoutY="33.0" mnemonicParsing="false" text="Digital 1" />
+                        <RadioButton fx:id="digital2Btn" disable="true" layoutX="14.0" layoutY="52.0" mnemonicParsing="false" text="Digital 2" />
+                        <RadioButton fx:id="digital3Btn" disable="true" layoutX="14.0" layoutY="71.0" mnemonicParsing="false" text="Digital 3" />
+                        <RadioButton fx:id="digital4Btn" disable="true" layoutX="14.0" layoutY="90.0" mnemonicParsing="false" text="Digital 4" />
+                        <RadioButton fx:id="digital5Btn" disable="true" layoutX="98.0" layoutY="14.0" mnemonicParsing="false" text="Digital 5" />
+                        <RadioButton fx:id="digital6Btn" disable="true" layoutX="98.0" layoutY="33.0" mnemonicParsing="false" text="Digital 6" />
+                        <RadioButton fx:id="digital7Btn" disable="true" layoutX="98.0" layoutY="52.0" mnemonicParsing="false" text="Digital 7" />
+                        <RadioButton fx:id="digital8Btn" disable="true" layoutX="98.0" layoutY="71.0" mnemonicParsing="false" text="Digital 8" />
+                        <RadioButton fx:id="digital9Btn" disable="true" layoutX="98.0" layoutY="90.0" mnemonicParsing="false" text="Digital 9" />
+                        <ProgressBar fx:id="analog0Bar" layoutX="246.0" layoutY="14.0" prefHeight="20.0" prefWidth="105.0" />
+                        <Label layoutX="185.0" layoutY="14.0" text="Analog 0" />
+                        <Label layoutX="185.0" layoutY="33.0" text="Analog 1" />
+                        <Label layoutX="185.0" layoutY="52.0" text="Analog 2" />
+                        <Label layoutX="185.0" layoutY="71.0" text="Analog 3" />
+                        <ProgressBar fx:id="analog1Bar" layoutX="246.0" layoutY="33.0" prefHeight="20.0" prefWidth="105.0" />
+                        <ProgressBar fx:id="analog2Bar" layoutX="246.0" layoutY="52.0" prefHeight="20.0" prefWidth="105.0" />
+                        <ProgressBar fx:id="analog3Bar" layoutX="246.0" layoutY="71.0" prefHeight="20.0" prefWidth="105.0" />
+                        <RadioButton fx:id="relay0Btn" disable="true" layoutX="14.0" layoutY="109.0" mnemonicParsing="false" text="Relay 0" />
+                        <RadioButton fx:id="relay2Btn" disable="true" layoutX="98.0" layoutY="109.0" mnemonicParsing="false" selected="true" text="Relay 2" />
+                        <RadioButton fx:id="relay1Btn" disable="true" layoutX="14.0" layoutY="128.0" mnemonicParsing="false" selected="true" text="Relay 1" />
+                        <RadioButton fx:id="relay3Btn" disable="true" layoutX="98.0" layoutY="128.0" mnemonicParsing="false" text="Relay 3" />
+                        <Label layoutX="185.0" layoutY="97.0" text="Battery Voltage" />
+                        <ProgressBar fx:id="batteryVoltageBar" layoutX="278.0" layoutY="97.0" prefHeight="20.0" prefWidth="105.0" />
+                        <RadioButton fx:id="brownoutBtn" disable="true" layoutX="183.0" layoutY="118.0" mnemonicParsing="false" text="Brownout" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Custom Properties">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="customPropTable" layoutX="32.0" layoutY="-20.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn fx:id="customPropKeyCol" prefWidth="132.00000607967377" text="Property" />
+                            <TableColumn fx:id="customPropValCol" prefWidth="445.0" text="Value" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+      <ListView fx:id="eventList" maxWidth="1.7976931348623157E308" minWidth="-Infinity" orientation="HORIZONTAL" prefHeight="132.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <HBox layoutX="104.0" layoutY="210.0" prefHeight="25.0" prefWidth="254.0" AnchorPane.bottomAnchor="132.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="searchField" onAction="#refreshShownEvents" onKeyReleased="#refreshShownEvents" prefHeight="25.0" prefWidth="306.0" promptText="Search">
+               <font>
+                  <Font size="12.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </TextField>
+            <CheckBox fx:id="showErrors" mnemonicParsing="false" onAction="#refreshShownEvents" prefHeight="25.0" selected="true" text="Errors">
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="showWarnings" mnemonicParsing="false" onAction="#refreshShownEvents" prefHeight="25.0" selected="true" text="Warnings">
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="showExceptions" mnemonicParsing="false" onAction="#refreshShownEvents" prefHeight="25.0" selected="true" text="Exceptions">
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="showInfo" mnemonicParsing="false" onAction="#refreshShownEvents" prefHeight="25.0" selected="true" text="Info">
+               <HBox.margin>
+                  <Insets right="6.0" />
+               </HBox.margin>
+            </CheckBox>
+            <CheckBox fx:id="showOther" mnemonicParsing="false" onAction="#refreshShownEvents" prefHeight="25.0" selected="true" text="Other" />
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

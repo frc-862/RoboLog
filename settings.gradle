@@ -1,0 +1,5 @@
+rootProject.name = "RoboLog"
+
+include 'Common'
+include 'Viewer'
+include 'Logger'
